@@ -2,7 +2,7 @@ import React, { useEffect, useState, useMemo } from 'react';
 import BookingModal from '../components/BookingModel';
 import toast from 'react-hot-toast';
 
-const API_BASE = 'http://localhost:5000/api';
+const API_BASE = 'https://car-rental-backend-amber.vercel.app/api';
 const PAGE_SIZE = 9;
 
 function BrowseCarsPage() {

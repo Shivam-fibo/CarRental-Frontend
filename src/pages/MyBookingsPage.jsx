@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const API_BASE = 'http://localhost:5000/api';
+const API_BASE = 'https://car-rental-backend-amber.vercel.app/api';
 
 const MyBookingsPage = () => {
   const [bookings, setBookings] = useState([]);

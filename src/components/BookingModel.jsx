@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-const API_BASE = 'http://localhost:5000/api';
+const API_BASE = 'https://car-rental-backend-amber.vercel.app/api';
 
 const BookingModal = ({ car, onClose, userId }) => {
   const [form, setForm] = useState({
