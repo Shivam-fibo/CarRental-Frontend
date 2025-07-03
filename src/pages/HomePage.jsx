@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import toast from "react-hot-toast"
+
 function HomePage() {
   const [showLogin, setShowLogin] = useState(false);
   const [email, setEmail] = useState('');
@@ -13,10 +14,8 @@ function HomePage() {
 
   const handleLogin = () => {
     if (email === mockEmail && password === mockPassword) {
-      
       localStorage.setItem('user', JSON.stringify({ email }));
-       setIsLoading(false);
-      
+      setIsLoading(false);
       toast.success("You are log in!!")
       setShowLogin(false);
       setShowLogin(false);
@@ -41,7 +40,7 @@ function HomePage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-blue-700 via-blue-800 to-indigo-900 text-white relative">
-      {/* Enhanced Login Modal */}
+      {/* Enhanced Login Modal - unchanged */}
       {showLogin && (
         <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 backdrop-blur-sm">
           <div className="bg-white p-8 rounded-2xl w-full max-w-md shadow-2xl text-black space-y-6 relative transform transition-all duration-300 scale-100">
@@ -52,8 +51,6 @@ function HomePage() {
               ×
             </button>
             
-            
-
             {/* Demo Credentials Info */}
             {showCredentials && (
               <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 relative">
@@ -130,7 +127,7 @@ function HomePage() {
         </div>
       )}
 
-      {/* Navigation Bar */}
+      {/* Navigation Bar - unchanged */}
       <nav className="flex items-center justify-between px-8 py-6">
         <div className="flex items-center space-x-2 cursor-pointer">
           <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -140,47 +137,42 @@ function HomePage() {
         </div>
       </nav>
 
-      {/* Hero Banner */}
-      <section className="flex-grow">
-        <div className="bg-white">
-          <main className="flex flex-col-reverse md:flex-row items-center px-5 md:px-20 py-16">
-            <div className="md:w-1/2 space-y-5">
-              <h2 className="text-xl font-semibold text-gray-600">Premium Car Rentals</h2>
-              <h1 className="text-5xl font-bold text-gray-800">
-                Drive <span className="text-blue-500">luxury</span> with ease
-              </h1>
-              <p className="text-gray-600">
-                Experience seamless car rentals with our premium collection. Instant booking, 24/7 support, and competitive pricing for your perfect journey.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <button
-                 onClick={() => checkAuthAndNavigate('/browse')}
-                  className="bg-blue-600 text-white px-6 py-3 rounded-xl hover:bg-blue-700 transition-colors duration-200 shadow-lg hover:shadow-xl"
-                >
-                  Browse & Book
-                </button>
-                <button
-                  onClick={() => setShowLogin(true)}
-                  className="bg-gray-800 text-white px-6 py-3 rounded-xl hover:bg-gray-900 transition-colors duration-200"
-                >
-                  Login (Mock User)
-                </button>
-                <button
-                 onClick={() => checkAuthAndNavigate('/my-bookings')}
-                  className="border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-xl hover:bg-blue-50 transition-colors duration-200"
-                >
-                  My Bookings
-                </button>
-              </div>
+      {/* Hero Banner - modified section */}
+      <section className="flex-grow flex items-center justify-center">
+        <div className="container mx-auto px-6 py-16 text-center">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-xl font-semibold text-blue-200 mb-2">Premium Car Rentals</h2>
+            <h1 className="text-5xl font-bold text-white mb-6">
+              Drive <span className="text-blue-300">luxury</span> with ease
+            </h1>
+            <p className="text-xl text-blue-100 mb-8">
+              Experience seamless car rentals with our premium collection. Instant booking, 24/7 support, and competitive pricing for your perfect journey.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <button
+                onClick={() => checkAuthAndNavigate('/browse')}
+                className="bg-white text-blue-600 px-8 py-4 rounded-xl hover:bg-blue-50 transition-colors duration-200 shadow-lg hover:shadow-xl font-medium"
+              >
+                Browse & Book
+              </button>
+              <button
+                onClick={() => setShowLogin(true)}
+                className="bg-blue-600 text-white px-8 py-4 rounded-xl hover:bg-blue-700 transition-colors duration-200 font-medium"
+              >
+                Login (Mock User)
+              </button>
+              <button
+                onClick={() => checkAuthAndNavigate('/my-bookings')}
+                className="border-2 border-white text-white px-8 py-4 rounded-xl hover:bg-blue-900 transition-colors duration-200 font-medium"
+              >
+                My Bookings
+              </button>
             </div>
-            <div className="md:w-1/2">
-              <img src="/car.png" alt="" />
-            </div>
-          </main>
+          </div>
         </div>
       </section>
 
-      {/* Footer */}
+      {/* Footer - unchanged */}
       <footer className="bg-black bg-opacity-20 py-8">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
